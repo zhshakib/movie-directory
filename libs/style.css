@@ -1,0 +1,96 @@
+/* Importing fonts! */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600&family=Passions+Conflict&display=swap');
+
+:root {
+    --primary: rgb(235, 95, 31);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Barlow Condensed', cursive;
+    background: #000;
+    color: white;
+}
+
+.navbar {
+    background-color: rgb(19, 19, 19);
+    color: white;
+    text-align: center;
+}
+
+.navbar_title {
+    font-size: 36px;
+    padding: 5px 0px;
+}
+
+.pritha {
+    color: var(--primary);
+    font-size: 80px;
+    font-family: 'Passions Conflict';
+}
+
+.slogan {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+
+/* Movies Section */
+.movies {
+    margin-top: 5px;
+}
+
+.movies>h2 {
+    margin: 0px auto;
+    width: fit-content;
+    text-align: center;
+    color: navajowhite;
+    border-bottom: 2px solid var(--primary);
+}
+
+/* Single Movie Section */
+.movie {
+    height: fit-content;
+    border-bottom: 1px solid var(--primary);
+    padding: 10px;
+    display: flex;
+    margin-bottom:5px;
+}
+
+.movie>.image {
+    width: 200px;
+    margin-right: 10px;
+}
+
+.movie>.image>img {
+    width: 100%;
+    border-radius: 2%;
+}
+
+.movie>.data{
+    font-weight: 400;
+    line-height: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.movie>.data>h4{
+    font-size: 20px;
+    
+}
+
+.movie>.data>a{
+    text-decoration: none;
+    background: var(--primary);
+    font-size: 15px;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+}

@@ -1,48 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./libs/style.css" />
+    <title>Pritha's Movie Directory</title>
+  </head>
+  <body>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    
-    <div id="app">
-        <div v-for="item in listItems">
-            <h2>
-                {{ item.title }}
-            </h2>
-            <h4>{{ item.author }}</h4>
-            <p>{{item.date}}</p>
-            <p>{{ item.content }}</p>
-        </div>
 
-        
+    <nav class="navbar">
+      <h2 class="navbar_title">
+        <span class="pritha">Pritha's</span>
+        <span class="slogan"> Movie Collections</span>
+      </h2>
+    </nav>
+
+    <div class="movies" id="app">
+      <h2>Latest Movies</h2>
+      <div class="movie" v-for="movie in movies">
+        <div class="image">
+          <img
+            :src=movie.image
+            alt=""
+          />
+        </div>
+        <div class="data">
+          <h4>{{ movie.title }}</h4>
+          <p>{{ movie.year }}</p>
+          <p>
+            {{ movie.description }}
+          </p>
+          <a :href=movie.link>Download Now</a>
+        </div>
+      </div>
     </div>
-    
-    <script>
-      const { createApp } = Vue
-    
-      createApp({
-        data() {
-          return {
-            listItems:[],
-            apiURL : "https://zhshakib.github.io/movie-directory/API/movies.json",
-          }
-        },
-        methods : {
-            async getData(){
-                const res = await fetch(this.apiURL);
-                const finalRes = await res.json();
-                this.listItems = finalRes;
-            }
-        },
-        mounted(){
-            this.getData();
-        }
-      }).mount('#app')
-    </script>
-</body>
+
+    <script src="./libs/main.js"></script>
+  </body>
 </html>
