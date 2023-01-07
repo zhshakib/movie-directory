@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    
+    <div id="app">
+        <div v-for="item in listItems">
+            <h2>
+                {{ item.title }}
+            </h2>
+            <h4>{{ item.author }}</h4>
+            <p>{{item.date}}</p>
+            <p>{{ item.content }}</p>
+        </div>
+
+        
+    </div>
+    
+    <script>
+      const { createApp } = Vue
+    
+      createApp({
+        data() {
+          return {
+            listItems:[],
+          }
+        },
+        methods : {
+            async getData(){
+                const res = await fetch("https://127.0.0.1:5500/api/movies.json");
+                const finalRes = await res.json();
+                this.listItems = finalRes;
+            }
+        },
+        mounted(){
+            this.getData();
+        }
+      }).mount('#app')
+    </script>
+</body>
+</html>
