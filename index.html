@@ -29,11 +29,12 @@
         data() {
           return {
             listItems:[],
+            apiURL : "https://zhshakib.github.io/movie-directory/API/movies.json",
           }
         },
         methods : {
             async getData(){
-                const res = await fetch("https://127.0.0.1:5500/api/movies.json");
+                const res = await fetch(this.apiURL);
                 const finalRes = await res.json();
                 this.listItems = finalRes;
             }
