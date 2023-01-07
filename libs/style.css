@@ -64,7 +64,7 @@ body {
 }
 
 .movie>.image {
-    width: 200px;
+    max-width: 35%;
     margin-right: 10px;
 }
 
